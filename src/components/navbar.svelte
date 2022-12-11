@@ -1,5 +1,6 @@
 <script>
 	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
+	import { page } from '$app/stores';
 </script>
 
 <Navbar
@@ -13,9 +14,11 @@
 	</NavBrand>
 	<NavHamburger on:click={toggle} />
 	<NavUl {hidden}>
-		<NavLi href="/" active={true}>Home</NavLi>
-		<NavLi href="/about">About</NavLi>
-		<NavLi href="/reference-generator">Reference Generator</NavLi>
-		<NavLi href="/contact">Contact</NavLi>
+		<NavLi href="/" active={$page.url.pathname == '/'}>Home</NavLi>
+		<NavLi href="/about" active={$page.url.pathname == '/about'}>About</NavLi>
+		<NavLi href="/reference-generator" active={$page.url.pathname == '/reference-generator'}
+			>Reference Generator</NavLi
+		>
+		<NavLi href="/contact" active={$page.url.pathname == '/contact'}>Contact</NavLi>
 	</NavUl>
 </Navbar>
