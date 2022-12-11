@@ -1,9 +1,10 @@
-<script lang="ts">
+<script>
 	import { Button } from 'flowbite-svelte';
+	import { getContext } from 'svelte';
 	import Select from './select.svelte';
 
-	let refereceType: string;
-	let timer: string;
+	let timer = getContext('timer');
+	let draw = getContext('draw');
 	let referenceTypes = [
 		{ value: 'hand', name: 'Hand' },
 		{ value: 'object', name: 'Object' },
@@ -23,8 +24,8 @@
 
 <div class="flex items-end justify-between w-full">
 	<div class="flex items-center">
-		<Select value={refereceType} items={referenceTypes} title="Reference Type" />
-		<Select value={timer} items={timerOptions} title="Timer" />
+		<Select items={referenceTypes} title="Reference Type" name="draw" />
+		<Select items={timerOptions} title="Timer" name="timer" />
 	</div>
 	<Button class="max-h-12 w-32">Start Practice</Button>
 </div>
