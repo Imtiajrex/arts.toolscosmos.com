@@ -1,7 +1,6 @@
 <script>
 	// @ts-nocheck
 
-	import { Button, Toggle } from 'flowbite-svelte';
 	import { getContext } from 'svelte';
 	import Select from './select.svelte';
 	let focus = getContext('focus');
@@ -26,7 +25,7 @@
 	};
 	$: textColor = $practice && $focus ? 'text-slate-100' : 'text-gray-900';
 	$: buttonText = $practice ? 'Stop' : 'Start';
-	$: buttonColor = $practice ? 'red' : 'blue';
+	$: buttonClass = $practice && 'btn-error';
 	$: focusClass = $practice && $focus ? 'justify-between w-full' : 'justify-between md:justify-end';
 </script>
 
@@ -40,9 +39,12 @@
 		</div>
 	{/if}
 	<div class={'flex items-center mt-5 md:mt-0 w-full ' + focusClass}>
-		<Toggle bind:checked={$focus} class={`mr-3 ${textColor}`}>Focused</Toggle>
-		<Button class="max-h-12 w-32" color={buttonColor} on:click={togglePractice}
-			>{buttonText} Practice</Button
+		<label class={`cursor-pointer label mr-3`}>
+			<span class={`label-text mr-2 ${textColor}`}>Focused</span>
+			<input type="checkbox" bind:checked={$focus} class="toggle toggle-primary" />
+		</label>
+		<button class={`btn max-h-12 w-36 ${buttonClass}`} on:click={togglePractice}
+			>{buttonText} Practice</button
 		>
 	</div>
 </div>
