@@ -1,14 +1,21 @@
 const config = {
-	content: [
-		'./src/**/*.{html,js,svelte,ts}',
-		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
-	],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 
+	mode: 'jit',
 	theme: {
 		extend: {}
 	},
-
-	plugins: [require('flowbite/plugin')],
+	daisyui: {
+		themes: [
+			{
+				light: {
+					...require('daisyui/src/colors/themes')['[data-theme=light]'],
+					error: '#d11749'
+				}
+			}
+		]
+	},
+	plugins: [require('daisyui')],
 	darkMode: 'class'
 };
 

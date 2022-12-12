@@ -1,5 +1,4 @@
 <script>
-	import { Button } from 'flowbite-svelte';
 	import { ArrowRight, Phone } from 'svelte-heros-v2';
 	import BgGradient from '../lib/bg-gradient.svelte';
 </script>
@@ -16,10 +15,10 @@
 					perfect tools to help you take your art to new heights
 				</p>
 				<div class="mt-8 flex gap-x-4 sm:justify-center">
-					<Button size="lg"
+					<button class="btn"
 						>Check our tools
 						<span class="ml-2"> <ArrowRight size={'18px'} /></span>
-					</Button>
+					</button>
 				</div>
 			</div>
 			<BgGradient />
