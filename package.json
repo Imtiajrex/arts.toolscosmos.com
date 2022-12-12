@@ -34,6 +34,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"svelte-heros": "^2.3.5"
+		"svelte-heros": "^2.3.5",
+		"unsplash-js": "^7.0.15"
 	}
 }

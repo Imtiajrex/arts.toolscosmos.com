@@ -11,6 +11,6 @@
 	/>
 </svelte:head>
 <Navbar />
-<div class="pt-24">
+<div>
 	<slot />
 </div>
