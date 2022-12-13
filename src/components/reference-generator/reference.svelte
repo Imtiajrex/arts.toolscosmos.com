@@ -4,6 +4,7 @@
 	import Imageplaceholder from '../lib/imageplaceholder.svelte';
 	import { createApi } from 'unsplash-js';
 	import { getContext } from 'svelte';
+	import Image from '../lib/image.svelte';
 
 	const accessKey = '1gKY8v4RLY3MYO-vlTQ2XMc690yydp_O3thxXxsfaNM';
 	let practice = getContext('practice');
@@ -13,18 +14,10 @@
 
 	let references = [];
 	let currentRef = null;
+
 	const unsplash = createApi({
 		accessKey
 	});
-	practice.subscribe((value) => {
-		if (value) {
-			fetchRefs();
-		} else {
-			references = [];
-			currentRef = null;
-		}
-	});
-
 	const fetchRefs = async () => {
 		const data = await unsplash.search.getPhotos({
 			query: $draw,
@@ -37,6 +30,15 @@
 
 		console.log('ran', data);
 	};
+	practice.subscribe((value) => {
+		if (value) {
+			fetchRefs();
+		} else {
+			references = [];
+			currentRef = null;
+		}
+	});
+
 	$: containerClass = $practice && $focus ? 'mb-10' : 'p-10 xs:p-5';
 </script>
 
@@ -47,10 +49,10 @@
 >
 	{#if $practice}
 		{#if currentRef}
-			<img
+			<Image
 				src={currentRef.urls.regular}
 				alt={currentRef.alt_description}
-				class="h-full w-full object-contain"
+				className={'h-full w-full object-contain'}
 			/>
 		{/if}
 	{:else}
