@@ -4,8 +4,8 @@
 	import { getContext } from 'svelte';
 	export let items;
 	export let name;
-	let value = getContext(name);
 	export let title;
+	let value = getContext(name);
 </script>
 
 <select class="select select-bordered" bind:value={$value}>
