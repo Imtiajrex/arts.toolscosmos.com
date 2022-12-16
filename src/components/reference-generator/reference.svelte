@@ -22,13 +22,12 @@
 		const data = await unsplash.search.getPhotos({
 			query: $draw,
 			page: 1,
-			perPage: 30,
+			perPage: 100,
 			orderBy: 'relevant'
 		});
 		references = data.response.results;
-		currentRef = references[0];
-
-		console.log('ran', data);
+		changeRef();
+		// generate random number between 0 and length of references
 	};
 	practice.subscribe((value) => {
 		if (value) {
@@ -40,10 +39,15 @@
 	});
 
 	$: containerClass = $practice && $focus ? 'mb-10' : 'p-10 xs:p-5';
+	const changeRef = () => {
+		const random = Math.floor(Math.random() * references.length);
+
+		currentRef = references[random];
+	};
 </script>
 
 <div
-	class={'flex items-center justify-center w-full h-full bg-black rounded-lg mr-0 ' +
+	class={'flex items-center justify-center flex-col relative w-full h-full bg-black rounded-lg mr-0 ' +
 		containerClass}
 	style={$practice && $focus && 'height:88vh'}
 >
@@ -58,4 +62,5 @@
 	{:else}
 		<Imageplaceholder />
 	{/if}
+	<button class="btn btn-warning absolute z-50 bottom-2 " on:click={changeRef}> Change </button>
 </div>

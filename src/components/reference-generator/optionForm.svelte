@@ -7,7 +7,15 @@
 	const practice = getContext('practice');
 	let draw = getContext('draw');
 	let timer = getContext('timer');
-	let referenceTypes = ['Hand', 'Model', 'Animal', 'Bird'].map((type) => {
+	let referenceTypes = [
+		'Portrait',
+		'Hand',
+		'Nose',
+		'Human Ear',
+		'Body Sketch Model',
+		'Animal',
+		'Bird'
+	].map((type) => {
 		return { value: type.toLowerCase(), name: type };
 	});
 	let timerOptions = [1, 2, 5, 15, 30, 45, 60].map((time) => {
@@ -16,7 +24,6 @@
 	const togglePractice = () => {
 		$practice = !$practice;
 	};
-	$: textColor = $practice && $focus ? 'text-slate-100' : 'text-gray-900';
 	$: buttonText = $practice ? 'Stop' : 'Start';
 	$: buttonClass = $practice && 'btn-error';
 	$: focusClass = $practice && $focus ? 'justify-between w-full' : 'justify-between md:justify-end';
@@ -38,11 +45,11 @@
 	{/if}
 	<div class={'flex items-center mt-5 md:mt-0 w-full ' + focusClass}>
 		<label class={`cursor-pointer label mr-3`}>
-			<span class={`label-text mr-2 ${textColor}`}>Focused</span>
+			<span class={`label-text mr-2 `}>Focused</span>
 			<input type="checkbox" bind:checked={$focus} class="toggle toggle-primary" />
 		</label>
 		<button
-			class={`btn max-h-12 w-36 ${buttonClass}`}
+			class={`btn btn-primary max-h-12 w-36  ${buttonClass}`}
 			on:click={togglePractice}
 			disabled={$draw.length == 0 || $timer.length == 0}>{buttonText} Practice</button
 		>
