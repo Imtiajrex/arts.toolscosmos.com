@@ -2,8 +2,7 @@
 	import { page } from '$app/stores';
 	import { Bars2 } from 'svelte-heros-v2';
 	let collapsed = false;
-	const linkClass =
-		'block py-2 pl-3 pr-4 text-black hover:text-primary transition-all rounded md:p-0 dark:text-white ';
+	const linkClass = 'block py-2 pl-3 pr-4 hover:text-primary transition-all rounded md:p-0 ';
 </script>
 
 <nav class="p-3 py-8  rounded bg-transparent">
