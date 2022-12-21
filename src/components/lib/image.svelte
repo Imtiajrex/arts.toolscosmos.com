@@ -1,23 +1,29 @@
 <script lang="ts">
-	import { createLoadObserver } from '../../utils/utils';
+	import { getContext } from 'svelte';
+
+	//@ts-nocheck
 	import Imageplaceholder from './imageplaceholder.svelte';
 
 	export let src: string;
 	export let alt: string;
 	export let className: string | undefined;
-	let imgLoading = false;
-	const onload = createLoadObserver(
-		() => {
-			imgLoading = false;
-		},
-		() => {
-			imgLoading = true;
-		}
-	);
+	let imageLoading = getContext('image-loading');
+
+	const loadImage = () => {
+		console.log('image loading');
+		imageLoading = true;
+		const img = new Image();
+		img.src = src;
+		img.onload = () => {
+			imageLoading = false;
+		};
+	};
+
+	$: if (src != '') loadImage();
 </script>
 
-{#if imgLoading}
+{#if imageLoading}
 	<Imageplaceholder />
+{:else}
+	<img {src} {alt} class={`${className} ${imageLoading ? 'hidden' : ''}`} />
 {/if}
-
-<img use:onload {src} {alt} class={`${className} ${imgLoading ? 'hidden' : ''}`} />

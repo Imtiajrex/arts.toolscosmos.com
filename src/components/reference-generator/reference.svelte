@@ -5,19 +5,19 @@
 	import { createApi } from 'unsplash-js';
 	import { getContext } from 'svelte';
 	import Image from '../lib/image.svelte';
-
 	const accessKey = '1gKY8v4RLY3MYO-vlTQ2XMc690yydp_O3thxXxsfaNM';
+	const unsplash = createApi({
+		accessKey
+	});
 	let practice = getContext('practice');
 	let focus = getContext('focus');
 	let draw = getContext('draw');
 	let timer = getContext('timer');
+	let timerValue = getContext('timer-value');
+	let currentRef = getContext('current-ref');
 
 	let references = [];
-	let currentRef = null;
 
-	const unsplash = createApi({
-		accessKey
-	});
 	const fetchRefs = async () => {
 		const data = await unsplash.search.getPhotos({
 			query: $draw,
@@ -34,15 +34,19 @@
 			fetchRefs();
 		} else {
 			references = [];
-			currentRef = null;
+			$currentRef = null;
 		}
 	});
 
 	$: containerClass = $practice && $focus ? 'mb-10' : 'p-10 xs:p-5';
+	$: if ($timerValue == 0) {
+		changeRef();
+	}
 	const changeRef = () => {
 		const random = Math.floor(Math.random() * references.length);
 
-		currentRef = references[random];
+		$currentRef = references[random];
+		$timerValue = $timer;
 	};
 </script>
 
@@ -52,10 +56,10 @@
 	style={$practice && $focus && 'height:88vh'}
 >
 	{#if $practice}
-		{#if currentRef}
+		{#if $currentRef}
 			<Image
-				src={currentRef.urls.regular}
-				alt={currentRef.alt_description}
+				src={$currentRef.urls.regular}
+				alt={$currentRef.alt_description}
 				className={'h-full w-full object-contain'}
 			/>
 		{/if}
