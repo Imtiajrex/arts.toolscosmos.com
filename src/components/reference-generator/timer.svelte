@@ -4,22 +4,26 @@
 	import { getContext } from 'svelte';
 
 	const timer = getContext('timer');
+	let timerValue = getContext('timer-value');
 	const focus = getContext('focus');
 	const practice = getContext('practice');
-	$: timerValue = $timer;
-	$: minutes = Math.floor(Number(timerValue) / 60);
-	$: seconds = Math.floor(Number(timerValue) - minutes * 60);
+	const imageLoading = getContext('image-loading');
+	$: if ($timer != '') {
+		$timerValue = $timer;
+	}
+	$: minutes = Math.floor(Number($timerValue) / 60);
+	$: seconds = Math.floor(Number($timerValue) - minutes * 60);
 	let timerInverval;
 	practice.subscribe((value) => {
 		if (value) {
 			timerInverval = setInterval(() => {
-				timerValue -= 1;
+				if (!$imageLoading && $timerValue > 0) $timerValue -= 1;
 			}, 1000);
 		} else {
 			if (timerInverval) {
 				clearInterval(timerInverval);
 			}
-			timerValue = $timer;
+			$timerValue = $timer;
 		}
 	});
 </script>

@@ -6,12 +6,15 @@
 	let practice = writable(false);
 	let focus = writable(true);
 	setContext('timer', writable(''));
+	setContext('timer-value', writable(''));
 	setContext('draw', writable(''));
 	setContext('focus', focus);
 	setContext('practice', practice);
+	setContext('image-loading', writable(false));
+	setContext('current-ref', writable(null));
 
 	const focusClass =
-		'h-screen fixed w-screen z-20 top-0 left-0 flex items-center justify-center flex flex-col items-center justify-center mx-auto';
+		'h-screen fixed  bg-base-100 w-screen z-20 top-0 left-0 flex items-center justify-center flex flex-col items-center justify-center mx-auto';
 	const defaultClass = 'h-screen flex flex-col justify-center max-w-7xl mx-auto  ';
 	$: containerClass = $focus && $practice ? focusClass : defaultClass;
 	$: wrapperClass = $focus && $practice ? 'flex-col-reverse' : 'flex-col';

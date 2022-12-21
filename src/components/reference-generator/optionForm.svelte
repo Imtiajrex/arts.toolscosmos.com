@@ -49,7 +49,7 @@
 			<input type="checkbox" bind:checked={$focus} class="toggle toggle-primary" />
 		</label>
 		<button
-			class={`btn btn-primary max-h-12 w-36  ${buttonClass}`}
+			class={`btn btn-primary text-xs max-h-12 w-36  ${buttonClass}`}
 			on:click={togglePractice}
 			disabled={$draw.length == 0 || $timer.length == 0}>{buttonText} Practice</button
 		>
