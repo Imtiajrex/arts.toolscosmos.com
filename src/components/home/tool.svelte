@@ -1,22 +1,27 @@
 <script lang="ts">
-	import { PaintBrush } from 'svelte-heros-v2';
+	import { ArrowRight, PaintBrush } from 'svelte-heros-v2';
 	export let title: string;
 	export let description: string;
 	export let Icon: ConstructorOfATypedSvelteComponent | undefined = PaintBrush;
 	export let link: string;
 </script>
 
-<div class="card w-96 bg-base-100 shadow-xl py-5">
-	<div class="flex flex-col items-center pb-4">
+<a
+	href={link}
+	class="flex items-center justify-between w-full max-w-sm  shadow-xl p-4 py-8  rounded-lg hover:-translate-y-2 bg-stone-900 hover:bg-stone-800 focus:translate-y-0 transform transition"
+>
+	<div class="flex items-center ">
 		<div
-			class="rounded-full w-24 h-24 mb-4 bg-gradient-to-r from-orange-500 to-pink-500 flex justify-center items-center relative"
+			class="rounded-full w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 flex justify-center items-center relative"
 		>
-			<Icon size="40" class="text-white" />
+			<Icon size="25" />
 		</div>
-		<h5 class="mb-1 text-xl font-medium text-gray-200 dark:text-white">{title}</h5>
-		<span class="text-sm text-gray-400 dark:text-gray-400">{description}</span>
-		<div class="flex mt-4 space-x-3 lg:mt-6">
-			<a href={link} class="btn btn-outline">Go to tool</a>
+		<div class="ml-3">
+			<h5 class="mb-1 text-lg font-medium ">{title}</h5>
+			<span class="text-sm text-gray-400">{description}</span>
 		</div>
 	</div>
-</div>
+	<div>
+		<ArrowRight size={'25px'} />
+	</div>
+</a>
