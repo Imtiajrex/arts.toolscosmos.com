@@ -10,8 +10,8 @@
 	];
 </script>
 
-<div class="my-24  min-h-screen ">
-	<div class="mx-auto max-w-2xl  items-center   py-14 px-4 sm:px-6 sm:py-18 lg:max-w-7xl lg:px-8">
+<div class="my-24 mx-auto container min-h-screen ">
+	<div class="  items-center   py-14 px-4 sm:px-6 sm:py-18 lg:max-w-7xl lg:px-8">
 		<div>
 			<h2 class="text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl">
 				Tools to help you grow
@@ -23,7 +23,7 @@
 			</p>
 		</div>
 	</div>
-	<div class="cards mx-auto max-w-2xl  lg:max-w-7xl px-4 sm:px-6 ">
+	<div class="cards lg:max-w-7xl px-4 sm:px-6 ">
 		{#each tools as tool}
 			<Tool {...tool} />
 		{/each}
