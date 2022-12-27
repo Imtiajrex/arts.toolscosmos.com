@@ -9,11 +9,14 @@
 	let timer = getContext('timer');
 	let referenceTypes = [
 		'Portrait',
-		'Hand',
-		'Nose',
+		'Human',
+		'Human Nose',
 		'Human Ear',
-		'Body Sketch Model',
-		'Animal',
+		'Human Body',
+		'Perspective',
+		'Mammal',
+		'Fish',
+		'Reptile',
 		'Bird'
 	].map((type) => {
 		return { value: type.toLowerCase(), name: type };
@@ -45,11 +48,15 @@
 	{/if}
 	<div class={'flex items-center mt-5 md:mt-0 w-full ' + focusClass}>
 		<label class={`cursor-pointer label mr-3`}>
-			<span class={`label-text mr-2 `}>Focused</span>
-			<input type="checkbox" bind:checked={$focus} class="toggle toggle-primary" />
+			<span class={`label-text mr-2 text-sm md:text-md`}>Focused</span>
+			<input
+				type="checkbox"
+				bind:checked={$focus}
+				class="toggle toggle-primary toggle-sm md:toggle-md"
+			/>
 		</label>
 		<button
-			class={`btn btn-primary text-xs max-h-12 w-36  ${buttonClass}`}
+			class={`btn btn-primary max-h-12 w-36 btn-sm md:btn-md  ${buttonClass}`}
 			on:click={togglePractice}
 			disabled={$draw.length == 0 || $timer.length == 0}>{buttonText} Practice</button
 		>

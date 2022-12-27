@@ -1,7 +1,7 @@
 <script>
 	import ReferenceContainer from '../../components/reference-generator/reference-container.svelte';
 	import OptionForm from '../../components/reference-generator/optionForm.svelte';
-	import { setContext } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	let practice = writable(false);
 	let focus = writable(true);
@@ -11,8 +11,7 @@
 	setContext('focus', focus);
 	setContext('practice', practice);
 	setContext('image-loading', writable(false));
-	setContext('current-ref', writable(null));
-
+	setContext('current-ref', writable(0));
 	const focusClass =
 		'h-screen fixed  bg-base-100 w-screen z-20 top-0 left-0 flex items-center justify-center flex flex-col items-center justify-center mx-auto';
 	const defaultClass = 'h-screen flex flex-col justify-center max-w-7xl mx-auto  ';
