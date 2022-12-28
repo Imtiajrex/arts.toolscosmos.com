@@ -40,7 +40,7 @@
 		if (!onServer && $draw && $practice && $currentRef) {
 			localStorage.setItem(
 				`current-ref-${$draw}`,
-				JSON.stringify(val > 30 ? val - (val % imagePerPage) * 30 : val)
+				JSON.stringify(val > 30 ? val - parseInt(val / imagePerPage) * 30 : val)
 			);
 		}
 	});
