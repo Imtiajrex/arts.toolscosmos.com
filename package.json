@@ -5,6 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"postbuild": "npx svelte-sitemap --domain https://toolscosmos.com",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -32,11 +33,14 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-static": "^1.0.0-next.50",
 		"daisyui": "^2.43.0",
 		"openai": "^3.1.0",
 		"sqlite": "^4.1.2",
 		"sqlite3": "^5.1.4",
 		"svelte-heros": "^2.3.5",
+		"svelte-seo": "^1.4.1",
+		"svelte-sitemap": "^2.5.4",
 		"unsplash-js": "^7.0.15"
 	}
 }
