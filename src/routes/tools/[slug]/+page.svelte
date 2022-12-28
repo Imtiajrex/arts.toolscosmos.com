@@ -5,7 +5,7 @@
 	const { param } = data;
 </script>
 
-<div>
+<div class="min-h-screen bg-base-300">
 	<h1>{param}</h1>
 	<p>Content for {param}</p>
 </div>
