@@ -9,14 +9,6 @@
 			link: '/tools/arts',
 			toolCount: 1,
 			bg: 'bg-amber-600'
-		},
-		{
-			title: 'Developer Tools',
-			description: 'Elevate Your Development Skills with the Right Tools',
-			Icon: PaintBrush,
-			link: '/tools/dev',
-			toolCount: 1,
-			bg: 'bg-cyan-600'
 		}
 	];
 </script>

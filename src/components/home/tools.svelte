@@ -3,15 +3,16 @@
 
 	const tools = [
 		{
-			title: 'Reference Generator',
+			title: 'Art Ref Generator',
 			description: 'Generate references for your art.',
-			link: '/reference-generator'
+			link: '/reference-generator',
+			bg: 'bg-emerald-600'
 		}
 	];
 </script>
 
-<div class="my-24 mx-auto container min-h-screen ">
-	<div class="  items-center   py-14 px-4 sm:px-6 sm:py-18 lg:max-w-7xl lg:px-8">
+<div class="my-32">
+	<div class=" items-center  py-14 sm:py-18 lg:max-w-7xl">
 		<div>
 			<h2 class="text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl">
 				Tools to help you grow
@@ -23,7 +24,7 @@
 			</p>
 		</div>
 	</div>
-	<div class="cards lg:max-w-7xl px-4 sm:px-6 ">
+	<div class="cards lg:max-w-7xl ">
 		{#each tools as tool}
 			<Tool {...tool} />
 		{/each}
