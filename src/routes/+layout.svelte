@@ -2,6 +2,7 @@
 	import Navbar from '../components/navbar.svelte';
 	import '../app.postcss';
 	import BgGradient from '../components/lib/bg-gradient.svelte';
+	import Footer from '../components/home/footer.svelte';
 </script>
 
 <svelte:head>
@@ -14,4 +15,5 @@
 <div class="bg-base-300 relative">
 	<Navbar />
 	<slot />
+	<Footer />
 </div>

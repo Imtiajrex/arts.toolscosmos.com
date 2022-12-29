@@ -8,7 +8,7 @@
     reference images they need to create their best work. With just a few simple keywords, our tool
     generates a curated selection of reference images for you to choose from."
 />
-<article class="my-20 leading-8 container mx-auto px-6">
+<article class="py-20 leading-8 container mx-auto px-6 bg-base-300">
 	<h1 class="text-4xl leading-relaxed font-bold">Art, Sketch Reference Generator Tool</h1>
 	<h2 class="text-xl leading-relaxed font-bold">
 		Are you an artist in search of the perfect reference image for your next masterpiece? Look no

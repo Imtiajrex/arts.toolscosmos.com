@@ -1,9 +1,9 @@
 <script>
-	import ReferenceContainer from '../../components/reference-generator/reference-container.svelte';
-	import OptionForm from '../../components/reference-generator/optionForm.svelte';
+	import ReferenceContainer from '../../../../components/reference-generator/reference-container.svelte';
+	import OptionForm from '../../../../components/reference-generator/optionForm.svelte';
 	import { onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
-	import Article from '../../components/reference-generator/article.svelte';
+	import Article from '../../../../components/reference-generator/article.svelte';
 	let practice = writable(false);
 	let focus = writable(true);
 	setContext('timer', writable(''));
